@@ -1,0 +1,31 @@
+import { test, expect } from '@playwright/test';
+
+test('Codegen demo', async ({ page }) => {
+  await page.goto('https://www.wikipedia.org/');
+  await page.getByRole('searchbox', { name: 'Search Wikipedia' }).fill("Donald Trump");
+  await page.getByRole('searchbox', { name: 'Search Wikipedia' }).press("Enter");
+  // await page.getByRole('button', { name: 'Search' }).click();
+  await page.getByRole('link', { name: 'Donald J. Trump Foundation' }).click();
+  // await page.getByRole('link', { name: 'The Donald J. Trump' }).click();
+  // await expect(page.getByRole('link').filter({ hasText: /^$/ }).first()).toBeVisible();
+  await expect(page.locator('#firstHeading')).toContainText('Donald J. Trump Foundation');
+  await page.goto('https://en.wikipedia.org/wiki/Donald_Trump');
+  await expect(page.locator('#mw-content-text')).toContainText('Donald John Trump (1946-06-14) June 14, 1946 (age 79)Queens, New York City, U.S.');
+  await page.getByRole('button', { name: '[show]' }).first().click();
+  await page.getByRole('link', { name: 'Second presidency (2025–present)', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Second presidency (2025–' })).toBeVisible();
+  // await page.goto(mainPage);
+  // const mainLogo: Locator = page.locator("//*[name()='g' and @id='d']");
+  // const homeTitle: Locator = page.locator("//div[@class='name' and text()='HOME']");
+  // await expect(mainLogo).toBeVisible();
+  // await expect(homeTitle).toBeVisible();
+  // console.log('Main page is loaded correctly');
+  // const circleMenu: Locator = page.locator("//div[@class='circle']/img[@src='./images/menu.svg']");
+  // await circleMenu.hover();
+  // await page.waitForTimeout(500);
+  // const menuHovered: Locator = page.locator("//div[@class='menu-hover is-show']/div[@class='circle-hover']/img");
+  // await expect(menuHovered).toBeVisible();
+  // const ourTeaButton: Locator = page.locator("//ul[@class='menuList-hover']//a[normalize-space()='OUR TEA']");
+  // await expect(ourTeaButton).toBeVisible();
+  // await ourTeaButton.click();
+});
