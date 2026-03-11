@@ -1,5 +1,4 @@
-# Playwright + TypeScript - Page Object Model Refactoring
-
+# Playwright + TypeScript - Automation test demo
 ## 📌 Overview
 
 Your Playwright test suite has been successfully refactored into a professional **Page Object Model (POM)** architecture following SDET best practices. All test functionality remains identical while improving maintainability, reusability, and scalability.
