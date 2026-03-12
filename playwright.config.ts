@@ -42,6 +42,10 @@ export default defineConfig({
     locale: 'en-US',
     timezoneId: 'Asia/Ho_Chi_Minh',
     colorScheme: 'light',
+    // 'on-first-retry' chỉ ghi lại khi test bị lỗi và chạy lại lần 2
+    // 'retain-on-failure' ghi lại trace mỗi khi test fail
+    screenshot: 'only-on-failure',
+    video: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
@@ -50,7 +54,7 @@ export default defineConfig({
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'],
-        channel: 'chrome', // Use the installed Chrome browser instead of the bundled Chromium
+        // channel: 'chrome', // Use the installed Chrome browser instead of the bundled Chromium
         launchOptions: {
           args: [
             '--disable-blink-features=AutomationControlled',
