@@ -60,7 +60,6 @@ test('TC1: Verify main page loads correctly', async ({ page }) => {
   for (let d of drinks) {
     console.log(`Drink category: ${d}`);
   }
-  await page.waitForTimeout(500);
 });
 
 /**
@@ -85,7 +84,6 @@ test('TC2: Verify navigate to specific section', async ({ page }) => {
   await navigationMenu.navigateToOurTea();
   await expect(navigationMenu.getOurTeaTitleLocator()).toBeVisible();
   console.log('Navigate to OUR TEA section successfully');
-  await page.waitForTimeout(500);
 });
 
 /**
@@ -137,7 +135,6 @@ test('TC3: Verify dynamic image animation', async ({ page }) => {
   }
 
   console.log('Image animation is working correctly');
-  await page.waitForTimeout(500);
 });
 
 /**
